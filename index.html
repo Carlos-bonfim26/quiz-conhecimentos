@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Carlos Bonfim">
+    <title>titulo</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main class="container">
+        <div class=" square ativo">
+            <div class="square-configuration">
+                <h1>Configurações do Quiz</h1>
+                <h2>Escolha o tema</h2>
+                <div class="container-tema">
+                    <div class="btn-tema select" id="tema1">Programação</div>
+                    <div class="btn-tema" id="tema2">História</div>
+                    <div class="btn-tema" id="tema3">Matemática</div>
+                    <div class="btn-tema" id="tema4">Futebol</div>
+                </div>
+                <h2>Quantidade de Questões</h2>
+                <div class="container-question">
+                    <button class="btn-question" id="btn5">5</button><button class="btn-question select" id="btn10 ">10</button><button class="btn-question" id="btn15">15</button><button class="btn-question" id="btn20">20</button><button class="btn-question" id="btn25">25</button>
+                </div>
+                <button id="start">Jogar!</button>
+            </div>
+        </div>
+        <div class="square-game square">
+            <div class="head-game">
+                <h2>Quiz de <span id="quizTema">Programação</span></h2>
+                <div class="square-tempo
+                "><i class="fa-regular fa-clock"></i>
+                <span class="tempo">6s</span></div>
+            </div>
+            <p class="pergunta">O que é uma variável?</p>
+            <div class="container-quest"><button class="quest erro">Algo que Vareia</button><button class="quest">uma função</button><button class="quest acerto">um espaço de memória que armazena dados</button><button class="quest">um tipo de dado</button></div>
+            <div class="contagem-quest">1 de 10 perguntas <button id="next">Próximo <i class="fa-solid fa-arrow-right"></i></button></div>
+        </div>
+        <div class="square-gameOver square ">
+            <div class="container-final">
+                <span class="icon-game-over"><i class="fa-solid fa-flag-checkered"></i></span>
+                <h2>Parabéns Você finalizou o Quiz</h2>
+                <button id="try-again">Jogar Novamente</button>
+            </div>
+        </div>
+    </main>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

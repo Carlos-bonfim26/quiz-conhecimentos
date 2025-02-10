@@ -1,0 +1,230 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&family=Raleway:ital@0;1&display=swap');
+:root{
+    --color1:#fff;
+    --color2:#1b1b1b;
+    --color3:#2541B2;
+    --color4:#1768AC;
+    --color5:#06bce185;
+    --color6:#96ACB7;
+    --color7:#6c99f8a3;
+    --certo:rgba(92, 221, 92, 0.504);
+    --errado:rgba(233, 45, 45, 0.541);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Raleway", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+h1, #start{
+    font-family: "Poppins", serif;
+    font-weight: 700;
+    font-style: normal;
+}
+h2, #quizTema, .pergunta, .contagem-quest, #next, #try-again{
+    font-family: "Poppins", serif;
+    font-weight: 500;
+    font-style: normal;
+}
+.container{
+    width: 100%;
+    min-height: 100vh;
+    background-color: var(--color4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.ativo{
+    display: flex  !important;
+}
+.square-configuration{
+    height: 100%;
+    width: 100%;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.square{
+    background-color: var(--color1);
+  
+    width: 28rem;
+    height: 28rem;
+ display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    border-radius: 0.5rem;
+    align-items: center;
+    box-shadow: 10px 15px 10px rgba(0, 0, 0, 0.15);
+}
+.container-tema{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+    width: 100%;
+    align-items: center;
+    gap: 0.4rem;    
+}
+.btn-tema{
+    width: 8.5rem;
+    height: 2rem;
+    border: 0.1rem solid var(--color6);
+    border-radius: 0.5em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: ease-in 0.2s;
+}
+.container-question{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 0.4rem;
+}
+.btn-question{
+    width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: var(--color6) solid 0.1rem;
+    cursor: pointer;
+}
+.select, .btn-tema:hover, .btn-question:hover{
+    background-color: var(--color5);
+    color: var(--color4);
+    border: var(--color4) 0.1rem solid;
+}
+#start{
+    width: 8rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    background-color: var(--color4);
+    color: var(--color1);
+    border: 0.1rem solid var(--color3);
+    cursor: pointer;
+    transition: 0.2s ease-in;
+}
+#start:hover{
+    background-color: var(--color5);
+    border: 0.1rem solid var(--color3);
+    color: var(--color3);
+}
+.head-game{
+    padding: 0.3rem;
+background-color: var(--color1);
+    width: 100%;
+    height: 3.5rem;
+    display: flex;
+    border-radius: 0.5rem    0.5rem 0 0;
+    justify-content: space-evenly;
+    align-items: center;
+    box-shadow: 0px 3px 5px  1px rgba(0, 0, 0, 0.1);
+}
+#quizTema{
+  color: var(--color4);
+}
+.square-tempo{
+background-color: var(--color2);
+color: var(--color1);
+height: 2rem;
+width: 4rem;
+display: flex;
+align-items: center;
+justify-content: space-evenly;
+border-radius: 0.5rem;
+font-size: 1.2rem;
+}
+.pergunta{
+    font-size: 1.2rem;
+}
+.container-quest{
+    height: 14rem;
+    width: 100%;
+    padding: 0.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+.quest{
+    width: 20rem;
+    height: 2.5rem;
+    border-radius: 0.5rem;
+    border: 0.1rem solid var(--color6);
+    background-color: var(--color7);
+    display: flex;
+    justify-content: space-between;
+    cursor: pointer;
+    align-items: center;
+    padding: 0.2rem;
+}
+.fa-circle-check{
+    color: green;
+    font-size: 1.2rem;
+}
+.fa-circle-xmark{
+    color: red;
+    font-size: 1.2rem;
+}
+.acerto{
+    background-color: var(--certo);
+    color: green;
+    border: 0.1rem solid green;
+}
+.erro{
+    background-color: var(--errado);
+    color: red;
+    border: 0.1rem solid red;
+}
+.contagem-quest{
+    box-shadow: 5px 0px 3px  3px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    border-radius: 0 0 0.5rem    0.5rem ;
+    height: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0.5rem;
+}
+#next{
+    background-color: var(--color4);
+    color: var(--color1);
+    width: 5.5rem;
+    height: 2rem;
+    border-radius: 0.5rem;
+    border:none;
+   display: none;
+   align-items: center;
+   justify-content: space-evenly;
+   transition: 0.2s ease-in;
+   cursor: pointer;
+}
+#next:hover, #try-again:hover{
+    background-color: var(--color5);
+    color: var(--color3);
+    border: 0.1rem solid var(--color3);
+}
+.container-final{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    align-items: center;
+}
+.icon-game-over{
+    font-size: 8rem;
+}
+
+#try-again{
+    background-color: var(--color4);
+    color: var(--color1);
+    width: 10rem;
+    height: 2.3rem;
+    border-radius: 0.5rem;
+    border: none;
+    transition: 0.2s ease-in;
+cursor: pointer;
+}
