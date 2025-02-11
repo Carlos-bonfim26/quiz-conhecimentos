@@ -7,7 +7,7 @@ const arrayFut = [
       "Neymar",
       "Romário"
     ],
-    respostaCorreta: "Pelé"
+    respostaCorreta: "Neymar"
   },
   {
     pergunta: "Qual país sediou a Copa do Mundo de 2014?",

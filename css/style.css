@@ -84,7 +84,7 @@ h2, #quizTema, .pergunta, .contagem-quest, #next, #try-again{
 }
 .container-question{
     display: grid;
-    grid-template-columns: repeat(5, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 0.4rem;
 }
 .btn-question{
@@ -128,7 +128,7 @@ background-color: var(--color1);
 #quizTema{
   color: var(--color4);
 }
-.square-tempo{
+/* .square-tempo{
 background-color: var(--color2);
 color: var(--color1);
 height: 2rem;
@@ -138,7 +138,7 @@ align-items: center;
 justify-content: space-evenly;
 border-radius: 0.5rem;
 font-size: 1.2rem;
-}
+} */
 .pergunta{
     font-size: 1.2rem;
 }
@@ -235,4 +235,49 @@ cursor: pointer;
 #error{
     color: var(--color1);
     font-size: 1.5rem;
+}
+#resCorrect{
+    font-size: 0.9rem;
+}
+@media (max-width:500px) {
+    .square{
+        width: 22rem;
+        height: 26rem;
+    }
+    h1{
+        font-size: 1.5rem;
+    }
+    h2{
+        font-size: 1.2rem;
+    }
+    .quest{
+        width: 20rem;
+    }
+}
+@media (max-width:365px){
+    .square{
+        width: 18rem;
+        height: 30rem;
+    }
+    h1{
+        font-size: 1.3rem;
+    }
+    h2{
+        font-size: 1rem;
+    }
+    .quest{
+        width: 16rem;
+        height: 4rem;
+     
+    }
+    .container-quest{
+        height: 17rem;
+    }
+    .pergunta{
+        font-size: 1rem;
+    }
+    .btn-tema{
+        width: 7rem;
+     font-size: 1rem;
+    }
 }
