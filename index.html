@@ -8,6 +8,11 @@
     <title>titulo</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/style.css">
+    <script src="js/main.js" type="module" defer></script>
+    <script src="js/progList.js" defer></script>
+    <script src="js/mathList.js" defer></script>
+    <script src="js/futList.js" defer></script>
+    <script src="js/histList.js" defer></script>
 </head>
 <body>
     <main class="container">
@@ -37,13 +42,15 @@
                 <span class="tempo">6s</span></div>
             </div>
             <p class="pergunta">O que é uma variável?</p>
-            <div class="container-quest"><button class="quest erro">Algo que Vareia</button><button class="quest">uma função</button><button class="quest acerto">um espaço de memória que armazena dados</button><button class="quest">um tipo de dado</button></div>
-            <div class="contagem-quest">1 de 10 perguntas <button id="next">Próximo <i class="fa-solid fa-arrow-right"></i></button></div>
+            <div class="container-quest"></div>
+
+            <div class="contagem-quest"><p>1 de 10 perguntas</p> <button id="next">Próximo <i class="fa-solid fa-arrow-right"></i></button></div>
         </div>
         <div class="square-gameOver square ">
             <div class="container-final">
                 <span class="icon-game-over"><i class="fa-solid fa-flag-checkered"></i></span>
                 <h2>Parabéns Você finalizou o Quiz</h2>
+                <p id="mensagemJogador"></p>
                 <button id="try-again">Jogar Novamente</button>
             </div>
         </div>

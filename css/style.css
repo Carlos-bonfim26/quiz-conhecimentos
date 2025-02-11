@@ -19,6 +19,7 @@
   font-weight: 400;
   font-style: normal;
 }
+
 h1, #start{
     font-family: "Poppins", serif;
     font-weight: 700;
@@ -36,6 +37,8 @@ h2, #quizTema, .pergunta, .contagem-quest, #next, #try-again{
     display: flex;
     align-items: center;
     justify-content: center;
+    flex-direction: column;
+    gap: 0.3rem;
 }
 .ativo{
     display: flex  !important;
@@ -149,8 +152,8 @@ font-size: 1.2rem;
     flex-direction: column;
 }
 .quest{
-    width: 20rem;
-    height: 2.5rem;
+    width: 24rem;
+    height: 3rem;
     border-radius: 0.5rem;
     border: 0.1rem solid var(--color6);
     background-color: var(--color7);
@@ -159,6 +162,7 @@ font-size: 1.2rem;
     cursor: pointer;
     align-items: center;
     padding: 0.2rem;
+    
 }
 .fa-circle-check{
     color: green;
@@ -227,4 +231,8 @@ font-size: 1.2rem;
     border: none;
     transition: 0.2s ease-in;
 cursor: pointer;
+}
+#error{
+    color: var(--color1);
+    font-size: 1.5rem;
 }

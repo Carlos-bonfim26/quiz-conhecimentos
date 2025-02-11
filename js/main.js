@@ -5,22 +5,28 @@ const tryAgain = document.getElementById("try-again")
 const btn_qntd = [...document.querySelectorAll('.btn-question')]
 const btn_tema = [...document.querySelectorAll('.btn-tema')]
 const erro = document.getElementById("error")
+const start = document.getElementById('start');
+const question = document.querySelector('.pergunta')
+const contagem = document.querySelector('.contagem-quest p')
+const quizTemaSpan = document.getElementById('quizTema')
+const mensagemJogador = document.querySelector('#mensagemJogador')
 
-const acertei = quest.map((el)=>{
-    el.addEventListener("click", ()=>{
-        next.style.display = "flex";
-    })
-    const novoElemento = document.createElement('i');
-    el.appendChild(novoElemento);
+// const acertei = quest.map((el)=>{
+//     el.addEventListener("click", ()=>{
+//         next.style.display = "flex";
+//     })
+//     const novoElemento = document.createElement('i');
+//     el.appendChild(novoElemento);
 
-    if(el.classList.contains('acerto')){
-        novoElemento.classList.add('fa-regular')
-       novoElemento.classList.add('fa-circle-check')
-    } else if(el.classList.contains('erro')){
-        novoElemento.classList.add('fa-regular')
-        novoElemento.classList.add('fa-circle-xmark')
-    }
-})
+//     if(el.classList.contains('acerto')){
+//         novoElemento.classList.add('fa-regular')
+//        novoElemento.classList.add('fa-circle-check')
+
+//     } else if(el.classList.contains('erro')){
+//         novoElemento.classList.add('fa-regular')
+//         novoElemento.classList.add('fa-circle-xmark')
+//     }
+// })
 function tirarSelection(){
   const remover=  btn_qntd.map((el)=>{
      el.classList.remove('select')
@@ -65,22 +71,130 @@ const escolhaTema = btn_tema.map((el)=>{
 function tema(){
     const verifcarTema = btn_tema.filter(ele => ele.classList.contains('select')).map(ele => ele.textContent);
 
-   const temaEscolhido = String(verifcarTema)
-
-   switch(temaEscolhido){
-    case 'Programação':
-
-    break;
-    case 'História':
-
-    break;
-    case'Matemática': 
-
-    break;
-    case'Futebol': 
-
-    break;
-    default:
-        erro.innerHTML = "Por favor selecione um tema"
-   }
-}
+     const temaEscolhido = String(verifcarTema)
+return temaEscolhido
+  
+}let rodada=1
+let acertos = 0;
+function exibirPergunta(lista) {
+  
+    contagem.innerHTML = `${rodada} de ${qntdPerguntas()} perguntas`;
+    const { pergunta, respostas, respostaCorreta } = lista[Math.floor(Math.random() * lista.length)];
+    question.innerHTML = pergunta;
+    const container = document.querySelector('.container-quest');
+    container.innerHTML = '';
+    respostas.slice(0, 4).forEach((el) => {
+      let botao = document.createElement('button');
+      botao.classList.add('quest');
+      botao.innerHTML = el;
+      container.appendChild(botao);
+      botao.addEventListener('click', () => {
+        if (el.trim().toLowerCase() === respostaCorreta.trim().toLowerCase()) {
+          botao.classList.add('acerto');
+          acertos++
+        } else {
+          botao.classList.add('erro');
+        }
+        document.querySelectorAll('.quest').forEach((btn) => {
+          btn.style.pointerEvents = 'none';
+        });
+        next.style.display = 'flex';
+        
+      });
+    });
+  }
+const startGame = start.addEventListener('click', ()=>{
+ 
+    const temaEscolhido = tema();
+    const numPerguntas = qntdPerguntas();
+    
+    quizTemaSpan.innerHTML = temaEscolhido
+    if(temaEscolhido && numPerguntas > 0){
+        erro.innerHTML = ''
+        const totalPerguntas = qntdPerguntas();
+    switch(temaEscolhido){
+        
+        case 'Programação':
+            exibirPergunta(arrayProg)
+              
+              next.addEventListener('click', () => {
+             rodada++
+            
+                next.style.display = 'none';
+                if (rodada <= totalPerguntas) {
+                  exibirPergunta(arrayProg);
+                } else {
+                 square[1].classList.remove('ativo');
+                 square[2].classList.add('ativo')
+                 mensagemJogador.innerHTML = `Você acertou ${acertos}/${totalPerguntas} questões`
+                 rodada=1
+                 acertos=0
+                }
+              });
+             
+       break;
+        case 'História':
+            exibirPergunta(arrayHist)
+              
+            next.addEventListener('click', () => {
+           rodada++
+          
+              next.style.display = 'none';
+              if (rodada <= totalPerguntas) {
+                exibirPergunta(arrayHist);
+              } else {
+               square[1].classList.remove('ativo');
+               square[2].classList.add('ativo')
+               mensagemJogador.innerHTML = `Você acertou ${acertos}/${totalPerguntas} questões`
+               rodada=1
+               acertos=0
+              }
+            });
+            
+        break;
+        case'Matemática': 
+        exibirPergunta(arrayMath)
+              
+        next.addEventListener('click', () => {
+       rodada++
+      
+          next.style.display = 'none';
+          if (rodada <= totalPerguntas) {
+            exibirPergunta(arrayMath);
+          } else {
+           square[1].classList.remove('ativo');
+           square[2].classList.add('ativo')
+           mensagemJogador.innerHTML = `Você acertou ${acertos}/${totalPerguntas} questões`
+           rodada=1
+           acertos=0
+          }
+        });
+     
+        break;
+        case'Futebol': 
+        exibirPergunta(arrayFut)
+              
+        next.addEventListener('click', () => {
+       rodada++
+      
+          next.style.display = 'none';
+          if (rodada <= totalPerguntas) {
+            exibirPergunta(arrayFut);
+          } else {
+           square[1].classList.remove('ativo');
+           square[2].classList.add('ativo')
+           mensagemJogador.innerHTML = `Você acertou ${acertos}/${totalPerguntas} questões`
+           rodada=1
+           acertos=0
+          }
+        });
+       
+        break;
+       }
+    square[0].classList.remove('ativo');
+    square[1].classList.add('ativo');
+    } else{
+        erro.innerHTML = "Selecione um tema ou a quantidade de perguntas"
+    }
+   
+})
