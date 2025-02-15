@@ -115,7 +115,7 @@ function exibirPergunta(lista) {
 next.addEventListener('click', () => {
   rodada++;
   next.style.display = 'none';
-  tempoResposta()
+
   if (rodada <= totalPerguntas) {
     exibirPergunta(quizAtual);
   } else {
@@ -125,6 +125,7 @@ next.addEventListener('click', () => {
     rodada = 0;
     acertos = 0;
   }
+  tempoResposta()
 });
 
 start.addEventListener('click', () => {
@@ -156,25 +157,32 @@ start.addEventListener('click', () => {
 });
 
 const temp = 15000; 
+let timerInterval = null;
 
 function tempoResposta() {
+ 
+  if (timerInterval !== null) {
+    clearInterval(timerInterval);
+  }
+  
   let timeLeft = temp / 1000; 
   tempo.innerHTML = timeLeft + "s";
   squareTempo.style.backgroundColor = "black";
-  const timerInterval = setInterval(() => {
+
+  timerInterval = setInterval(() => {
     timeLeft--;
-    if(timeLeft <=5 && timeLeft > 0){
+    if (timeLeft <= 5 && timeLeft > 0) {
       squareTempo.style.backgroundColor = "red";
       tempo.innerHTML = timeLeft + "s";
-          }
-    else if (timeLeft > 0) {
+    } else if (timeLeft > 0) {
       tempo.innerHTML = timeLeft + "s";
+      squareTempo.style.backgroundColor = "black";
     } else {
       clearInterval(timerInterval);
+      timerInterval = null;
       document.querySelectorAll('.quest').forEach((btn) => {
         btn.style.pointerEvents = 'none';
       });
-     
       next.style.display = "flex";
       tempo.innerHTML = "0s";
     }
