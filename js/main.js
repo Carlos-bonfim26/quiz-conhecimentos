@@ -11,6 +11,8 @@ const contagem = document.querySelector('.contagem-quest p')
 const quizTemaSpan = document.getElementById('quizTema')
 const mensagemJogador = document.querySelector('#mensagemJogador')
 const resCorrect = document.getElementById('resCorrect')
+const tempo = document.querySelector(".tempo")
+const squareTempo = document.querySelector('.square-tempo')
 
 function tirarSelection(){
   const remover=  btn_qntd.map((el)=>{
@@ -113,6 +115,7 @@ function exibirPergunta(lista) {
 next.addEventListener('click', () => {
   rodada++;
   next.style.display = 'none';
+  tempoResposta()
   if (rodada <= totalPerguntas) {
     exibirPergunta(quizAtual);
   } else {
@@ -127,6 +130,7 @@ next.addEventListener('click', () => {
 start.addEventListener('click', () => {
   const temaEscolhido = tema();
   const numPerguntas = qntdPerguntas();
+  tempoResposta();
   quizTemaSpan.innerHTML = temaEscolhido;
   if (temaEscolhido && numPerguntas > 0) {
     erro.innerHTML = '';
@@ -150,3 +154,29 @@ start.addEventListener('click', () => {
     erro.innerHTML = "Selecione um tema ou a quantidade de perguntas";
   }
 });
+
+const temp = 15000; 
+
+function tempoResposta() {
+  let timeLeft = temp / 1000; 
+  tempo.innerHTML = timeLeft + "s";
+  squareTempo.style.backgroundColor = "black";
+  const timerInterval = setInterval(() => {
+    timeLeft--;
+    if(timeLeft <=5 && timeLeft > 0){
+      squareTempo.style.backgroundColor = "red";
+      tempo.innerHTML = timeLeft + "s";
+          }
+    else if (timeLeft > 0) {
+      tempo.innerHTML = timeLeft + "s";
+    } else {
+      clearInterval(timerInterval);
+      document.querySelectorAll('.quest').forEach((btn) => {
+        btn.style.pointerEvents = 'none';
+      });
+     
+      next.style.display = "flex";
+      tempo.innerHTML = "0s";
+    }
+  }, 1000);
+}

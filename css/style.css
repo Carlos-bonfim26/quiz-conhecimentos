@@ -128,7 +128,7 @@ background-color: var(--color1);
 #quizTema{
   color: var(--color4);
 }
-/* .square-tempo{
+.square-tempo{
 background-color: var(--color2);
 color: var(--color1);
 height: 2rem;
@@ -138,7 +138,7 @@ align-items: center;
 justify-content: space-evenly;
 border-radius: 0.5rem;
 font-size: 1.2rem;
-} */
+}
 .pergunta{
     font-size: 1.2rem;
 }
